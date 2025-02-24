@@ -10,9 +10,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HealthCareAppoint
 {
-    public class HealthcareContext : DbContext
+    public class HealthcareContext:DbContext
     {
         public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<Consultation> Consultations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
