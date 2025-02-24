@@ -14,7 +14,7 @@ namespace HealthCareAppoint
     {
         public DbSet<Appointment> Appointments { get; set; }
 
-        public DbSet<>
+        public DbSet <Consultation> Consultations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
