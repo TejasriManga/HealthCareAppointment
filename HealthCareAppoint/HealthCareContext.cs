@@ -12,14 +12,24 @@ namespace HealthCareAppoint
 {
     public class HealthcareContext:DbContext
     {
+
+        public HealthcareContext() { }
+        public HealthcareContext(DbContextOptions<HealthcareContext> options) : base(options) { }
+        public DbSet<User> Users { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Doctor> Doctors { get; set; }
 
         public DbSet<Consultation> Consultations { get; set; }
 
+        public DbSet<Consultation> Consultations { get; set; }
+
+        
+
+        public DbSet<Doctor> Doctors { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Encrypt=False");
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Medical;Encrypt=False");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -30,14 +40,14 @@ namespace HealthCareAppoint
                 .HasForeignKey(a => a.UserId)
                 .OnDelete(DeleteBehavior.NoAction); // Change to NoAction
 
-            modelBuilder.Entity<Appointment>()
-                .HasOne(a => a.Consultation)
-                .WithOne(c => c.Appointment)
-                .HasForeignKey<Consultation>(c => c.AppointmentId)
+            modelBuilder.Entity<Consultation>()
+                .HasOne(c => c.Appointment)
+                .WithOne(a => a.Consultation)
+                .HasForeignKey<Appointment>(a => a.AppointmentId)
                 .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Doctor>()
-                .HasMany(d => d.Appointments)
+                .HasMany(d => d.Appointment)
                 .WithOne(a => a.Doctor)
                 .HasForeignKey(a => a.DoctorId); //Doctor appointment table relation
 

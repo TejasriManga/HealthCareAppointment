@@ -8,7 +8,7 @@ using Microsoft.Identity.Client;
 
 namespace HealthCareAppoint
 {
-    public class Operator
+    public class OperateDoctor
     {
         HealthcareContext obj = new HealthcareContext();
 
@@ -16,16 +16,16 @@ namespace HealthCareAppoint
         {
             return obj.Doctors.ToList();
         }
+
         public void Insert()
         {
             Doctor d1 = new Doctor();
-            Console.WriteLine("Enter DoctorId: ");
-            d1.DoctorId = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter DoctorId: ");
+            //d1.DoctorId = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter DoctorName: ");
             d1.DoctorName = Console.ReadLine();
-            Console.WriteLine("Enter DoctorSpecilization: ");
+            Console.WriteLine("Enter DoctorSpecialization: ");
             d1.DoctorSpecialization = Console.ReadLine();
-
             Console.WriteLine("Enter Entry Date (yyyy-MM-dd):");
             string input = Console.ReadLine();
             if (DateTime.TryParse(input, out DateTime entryDate))
@@ -41,7 +41,8 @@ namespace HealthCareAppoint
             obj.SaveChanges();
             Console.WriteLine("recordsSaved");
         }
-        public void print()
+
+        public void Print()
         {
             var ans = obj.Doctors.ToList();
             foreach (var d in ans)
@@ -51,30 +52,27 @@ namespace HealthCareAppoint
                 Console.WriteLine(d.DoctorSpecialization);
                 Console.WriteLine(d.EntryDate);
             }
-
         }
+
         public void DeleteConsultation()
         {
             Console.WriteLine("Enter ConsultationId: ");
-            int id = int.Parse
-                (Console.ReadLine());
+            int id = int.Parse(Console.ReadLine());
             obj.Doctors.Where(q => q.DoctorId == id).ExecuteDelete();
             obj.SaveChanges();
         }
+
         public void UpdateDoctor()
         {
             Console.WriteLine("Enter DoctorId: ");
             int id = int.Parse(Console.ReadLine());
-
             var doctor = obj.Doctors.FirstOrDefault(q => q.DoctorId == id);
             if (doctor != null)
             {
                 Console.WriteLine("Enter new DoctorName: ");
                 doctor.DoctorName = Console.ReadLine();
-
                 Console.WriteLine("Enter new DoctorSpecialization: ");
                 doctor.DoctorSpecialization = Console.ReadLine();
-
                 obj.Doctors.Update(doctor);
                 obj.SaveChanges();
                 Console.WriteLine("Doctor updated successfully.");
@@ -84,7 +82,5 @@ namespace HealthCareAppoint
                 Console.WriteLine("Doctor not found.");
             }
         }
-
     }
 }
-
