@@ -10,12 +10,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HealthCareAppoint
 {
-    public class HealthcareContext : DbContext
+    public class HealthcareContext:DbContext
     {
         public DbSet<Appointment> Appointments { get; set; }
 
+<<<<<<< HEAD
         public DbSet<User> User { get; set; }
 
+=======
+        public DbSet<User> Users { get; set; }
+        public DbSet<Consultation> Consultations { get; set; }
+>>>>>>> 7257b1ce9c36e22da36ad330bd3a9b035cb7e34e
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Encrypt=False");
