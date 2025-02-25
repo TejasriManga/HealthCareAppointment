@@ -28,6 +28,6 @@ namespace HealthCareAppoint
             ErrorMessage = "Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.")]
         public string Password { get; set; }
 
-
+        public ICollection<Appointment> Appointment { get; set; }
     }
 }

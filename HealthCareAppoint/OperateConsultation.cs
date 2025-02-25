@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
-using Microsoft.EntityFrameworkCore;
-using HealthCareAppoint;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace HealthCareAppointment
+namespace HealthCareAppoint
 {
     public class OperateConsultation
     {
 
-        HealthCareContext obj = Consultation();
+        HealthcareContext obj = new HealthcareContext();
 
         public List<Consultation> ViewConsultation()
         {
-            return obj.consultations.ToList();
+            return obj.Consultations.ToList();
 
         }
         public void InsertConsultation()
@@ -34,14 +27,14 @@ namespace HealthCareAppointment
             Console.WriteLine("Enter Prescription: ");
             consultations.Prescription = Console.ReadLine();
 
-            obj.consultations.Add(consultations);
+            obj.Consultations.Add(consultations);
             obj.SaveChanges();
             Console.WriteLine("record saved");
 
         }
         public void print()
         {
-            var ans = obj.consultations.ToList();
+            var ans = obj.Consultations.ToList();
             foreach (var con in ans)
             {
                 Console.WriteLine(con.ConsultationId);
@@ -55,7 +48,7 @@ namespace HealthCareAppointment
         {
             Console.WriteLine("Enter ConsultationId: ");
             int id = int.Parse(Console.ReadLine());
-            obj.consultations.Where(q => q.ConsultationId == id).ExecuteDelete();
+            obj.Consultations.Where(q => q.ConsultationId == id).ExecuteDelete();
             obj.SaveChanges();
 
 
@@ -65,7 +58,7 @@ namespace HealthCareAppointment
             Console.WriteLine("Enter ConsultationId to update: ");
             int id = int.Parse(Console.ReadLine());
 
-            var consultation = obj.consultations.Find(id);
+            var consultation = obj.Consultations.Find(id);
             if (consultation != null)
             {
                 Console.WriteLine("Enter new AppointmentId: ");
@@ -77,7 +70,7 @@ namespace HealthCareAppointment
                 Console.WriteLine("Enter new Prescription: ");
                 consultation.Prescription = Console.ReadLine();
 
-                obj.consultations.Update(consultation);
+                obj.Consultations.Update(consultation);
                 obj.SaveChanges();
                 Console.WriteLine("Consultation updated");
             }

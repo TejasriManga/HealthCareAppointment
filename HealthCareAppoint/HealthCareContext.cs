@@ -15,6 +15,7 @@ namespace HealthCareAppoint
         public DbSet<Appointment> Appointments { get; set; }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Consultation> Consultations { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Encrypt=False");
