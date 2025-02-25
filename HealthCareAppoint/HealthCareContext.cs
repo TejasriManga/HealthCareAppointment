@@ -13,14 +13,21 @@ namespace HealthCareAppoint
     public class HealthcareContext : DbContext
     {
         public DbSet<Appointment> Appointments { get; set; }
-
-        public DbSet <Consultation> Consultations { get; set; }
-
+        public DbSet<User> Users { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=master;Encrypt=False");
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Appointment>()
+                .HasOne(a => a.User)
+                .WithMany(u => u.Appointment)
+                .HasForeignKey(u => u.UserId)
+                .OnDelete(DeleteBehavior.NoAction); // Change to NoAction
 
+
+        }
 
 
 

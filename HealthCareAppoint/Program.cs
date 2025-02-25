@@ -9,17 +9,8 @@ namespace HealthCareAppoint
     class Program
     {
         static void Main(string[] args)
-        {
-
-
-            Demo d = new Demo();
-            List<Appointment> bk = d.GetAppoint();
-
-            foreach (Appointment  Appoint in bk)
-            {
-                Console.WriteLine(Appoint);
-            }
-            /*using (var context = new HealthcareContext())
+        { 
+            using (var context = new HealthcareContext())
             {
                 // Ensure database is created
                 context.Database.EnsureCreated();
@@ -119,7 +110,7 @@ namespace HealthCareAppoint
                             break;
                     }
                 }
-            }*/
+            }
         }
     }
 }

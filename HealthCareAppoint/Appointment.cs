@@ -16,6 +16,8 @@ namespace HealthCareAppoint
         public int AppointmentId { get; set; }
 
         [Required]
+
+        [ForeignKey("User")]
         public int UserId { get; set; }
 
 
@@ -23,6 +25,8 @@ namespace HealthCareAppoint
         [Required]
 
         public string Status { get; set; }
+
+        public User User { get; set; }
         
     }
 }
