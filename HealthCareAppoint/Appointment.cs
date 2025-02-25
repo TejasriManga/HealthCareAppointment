@@ -27,6 +27,8 @@ namespace HealthCareAppoint
         public string Status { get; set; }
 
         public User User { get; set; }
+
+        public Consultation Consultation { get; set; }
         
     }
 }

@@ -25,8 +25,14 @@ namespace HealthCareAppoint
             modelBuilder.Entity<Appointment>()
                 .HasOne(a => a.User)
                 .WithMany(u => u.Appointment)
-                .HasForeignKey(u => u.UserId)
+                .HasForeignKey(a => a.UserId)
                 .OnDelete(DeleteBehavior.NoAction); // Change to NoAction
+
+            modelBuilder.Entity<Appointment>()
+                .HasOne(a => a.Consultation)
+                .WithOne(c => c.Appointment)
+                .HasForeignKey<Consultation>(c => c.AppointmentId)
+                .OnDelete(DeleteBehavior.NoAction);
 
         }
 

@@ -14,11 +14,15 @@ namespace HealthCareAppoint
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ConsultationId { get; set; }
 
+        [ForeignKey("Appointment")]
+
         public int AppointmentId { get; set; }
 
         public string Notes { get; set; }
 
         public string Prescription { get; set; }
+
+        public Appointment Appointment {get; set;}
 
 
     }
