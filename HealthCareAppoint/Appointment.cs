@@ -20,6 +20,9 @@ namespace HealthCareAppoint
         [ForeignKey("User")]
         public int UserId { get; set; }
 
+        [Required]
+        [ForeignKey("Doctor")]
+        public int DoctorId { get; set; }
 
         public string DateTime { get; set; }
         [Required]
@@ -30,6 +33,7 @@ namespace HealthCareAppoint
 
         public Consultation Consultation { get; set; }
         
+        public Doctor Doctor { get; set; }
     }
 }
 

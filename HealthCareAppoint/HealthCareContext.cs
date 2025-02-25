@@ -33,6 +33,13 @@ namespace HealthCareAppoint
                 .HasForeignKey<Consultation>(c => c.AppointmentId)
                 .OnDelete(DeleteBehavior.NoAction);
 
+            modelBuilder.Entity<Doctor>()
+                .HasMany(d => d.Appointments)
+                .WithOne(a => a.Doctor)
+                .HasForeignKey(a => a.DoctorId); //Doctor appointment table relation
+
+
+
         }
 
 

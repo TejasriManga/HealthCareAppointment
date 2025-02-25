@@ -20,5 +20,6 @@ namespace HealthCareAppoint
         public string DoctorSpecialization { get; set; }
         [Required]
         public DateTime EntryDate { get; set; }
+        public ICollection<Appointment> Appointments { get; set; }
     }
 }

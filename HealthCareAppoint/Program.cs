@@ -12,7 +12,7 @@ namespace HealthCareAppoint
         { 
             using (var context = new HealthcareContext())
             {
-                // Ensure database is created
+                
                 context.Database.EnsureCreated();
 
                 Operate operate = new Operate();
