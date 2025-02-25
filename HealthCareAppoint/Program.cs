@@ -9,7 +9,7 @@ namespace HealthCareAppoint
     class Program
     {
         static void Main(string[] args)
-        {
+        { 
             using (var context = new HealthcareContext())
             {
                 // Ensure database is created
