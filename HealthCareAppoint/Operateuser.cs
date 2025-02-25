@@ -17,14 +17,14 @@ namespace HealthCareAppoint
         // User operations
         public void InsertUser(User user)
         {
-            _context.Users.Add(user);
+            _context.User.Add(user);
             _context.SaveChanges();
             Console.WriteLine("User registered successfully!");
         }
 
         public void UpdateUser(User updatedUser)
         {
-            var user = _context.Users.Find(updatedUser.UserId);
+            var user = _context.User.Find(updatedUser.UserId);
             if (user != null)
             {
                 user.Name = updatedUser.Name;
@@ -42,10 +42,10 @@ namespace HealthCareAppoint
 
         public void DeleteUser(User userToDelete)
         {
-            var user = _context.Users.Find(userToDelete.UserId);
+            var user = _context.User.Find(userToDelete.UserId);
             if (user != null)
             {
-                _context.Users.Remove(user);
+                _context.User.Remove(user);
                 _context.SaveChanges();
                 Console.WriteLine("User deleted successfully!");
             }
@@ -57,7 +57,7 @@ namespace HealthCareAppoint
 
         public List<User> ViewUsers()
         {
-            return _context.Users.ToList();
+            return _context.User.ToList();
         }
     }
 }
