@@ -13,11 +13,7 @@ namespace HealthCareAppoint
     public class HealthcareContext:DbContext
     {
         public DbSet<Appointment> Appointments { get; set; }
-<<<<<<< HEAD
-        public DbSet<Consultation> Consultations { get; set; }
 
-=======
->>>>>>> 5a7d08b39ec49647ddb5af71a5322e30bd8c9a0e
         public DbSet<User> Users { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
