@@ -13,7 +13,9 @@ namespace HealthCareAppoint
     public class HealthcareContext:DbContext
     {
         public DbSet<Appointment> Appointments { get; set; }
-        public DbSet<Doctor> Doctors { get; set; }  
+        public DbSet<Doctor> Doctors { get; set; }
+
+        public DbSet<Consultation> Consultations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
