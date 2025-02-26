@@ -15,8 +15,11 @@ namespace HealthCareAppoint
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
 
         public int DoctorId { get; set; }
+
         [Required]
         public string DoctorName { get; set; }
+
+        public String DoctorName { get; set; } 
 
         [Required]
         public string DoctorSpecialization { get; set; }
@@ -25,8 +28,4 @@ namespace HealthCareAppoint
 
         public ICollection<Appointment> Appointment { get; set; }
     }
-
-
-   
 }
-
