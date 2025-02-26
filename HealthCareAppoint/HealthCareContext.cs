@@ -23,11 +23,11 @@ namespace HealthCareAppoint
 
         
 
-        public DbSet<Doctor> Doctors { get; set; }
+        public DbSet<Doctor> Doctor { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Medical;Encrypt=False");
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Medico;Encrypt=False");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
