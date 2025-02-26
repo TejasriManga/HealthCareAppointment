@@ -23,7 +23,7 @@ namespace HealthCareAppoint
 
         
 
-        public DbSet<Doctor> Doctors { get; set; }
+        
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

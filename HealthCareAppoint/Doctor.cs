@@ -19,8 +19,6 @@ namespace HealthCareAppoint
         [Required]
         public string DoctorName { get; set; }
 
-        public String DoctorName { get; set; } 
-
         [Required]
         public string DoctorSpecialization { get; set; }
         [Required]
