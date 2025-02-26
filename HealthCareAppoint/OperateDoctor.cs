@@ -20,8 +20,8 @@ namespace HealthCareAppoint
         public void Insert()
         {
             Doctor d1 = new Doctor();
-            //Console.WriteLine("Enter DoctorId: ");
-            //d1.DoctorId = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter DoctorId: ");
+            d1.DoctorId = int.Parse(Console.ReadLine());
             Console.WriteLine("Enter DoctorName: ");
             d1.DoctorName = Console.ReadLine();
             Console.WriteLine("Enter DoctorSpecialization: ");
